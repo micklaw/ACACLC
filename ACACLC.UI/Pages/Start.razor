@@ -1,0 +1,55 @@
+﻿@page "/start"
+@using Microsoft.Extensions.Logging
+
+@inject ILogger<Start> logger
+
+<h1>Start a quote</h1>
+
+<EditForm Model="Inputs" OnValidSubmit="Submitted">
+    <FluentValidationValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>Customer Name</label>
+        <InputText @bind-Value="@Inputs.CustomerName"></InputText>
+    </p>
+    <p>
+        <label>Vehicle Price (£)</label>
+        <InputNumber @bind-Value="@Inputs.VehiclePrice"></InputNumber>
+    </p>
+    <p>
+        <label>Deposit (£) <small><i><strong>Minimum @Inputs.MinimumDepositDisplay%</strong></i></small></label>
+        <InputNumber @bind-Value="@Inputs.Deposit"></InputNumber>
+    </p>
+    <p>
+        <label>Over how many years?</label>
+        <InputSelect @bind-Value="@Inputs.NumberOfYears">
+            @foreach (var years in Inputs.AvailableDurations)
+            {
+                <option value="@years">@years</option>
+            }
+        </InputSelect>
+    </p>
+    <p>
+        <label>Arrangement Fee (£)</label>
+        <InputNumber @bind-Value="@Inputs.ArrangementFee"></InputNumber>
+    </p>
+    <p>
+        <label>Settlement Fee (£)</label>
+        <InputNumber @bind-Value="@Inputs.SettlementFee"></InputNumber>
+    </p>
+
+    <p>
+        <button>Save</button>
+    </p>
+
+</EditForm>
+
+@code {
+    QuoteInputs Inputs = new QuoteInputs();
+
+    void Submitted()
+    {
+        logger.LogDebug("Form submitted", Inputs);
+    }
+}

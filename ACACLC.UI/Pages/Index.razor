@@ -1,0 +1,28 @@
+﻿@page "/"
+
+@inject IStorage Storage
+
+<h1>Finance Calculator</h1>
+
+<p>You can view previous quotes you have completed below, or alternatively <a href="start" title="Begin a new quote now.">start a new quote</a>.</p>
+
+@if (quotes != null)
+{
+
+}
+else
+{
+    <p><strong>You have not created any quotes yet.</strong></p>
+}
+
+
+@code {
+
+    IList<Quote> quotes = null;
+
+    protected override void OnInit()
+    {
+        quotes = Storage.Get<List<Quote>>(nameof(quotes));
+    }
+
+}
