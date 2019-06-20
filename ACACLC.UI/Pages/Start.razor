@@ -11,41 +11,38 @@
 
     <div class="form-group">
         <label>Customer Name</label>
-        <InputText @bind-Value="@Inputs.CustomerName" class="form-control" placeholder="Customer name"></InputText>
+        <input @bind="@Inputs.CustomerName" class="form-control" placeholder="e.g Michael Law" />
     </div>
 
-    <p>
-        
-    </p>
-    <p>
+    <div class="form-group">
         <label>Vehicle Price (£)</label>
-        <InputNumber @bind-Value="@Inputs.VehiclePrice"></InputNumber>
-    </p>
-    <p>
-        <label>Deposit (£) <small><i><strong>Minimum @Inputs.MinimumDepositDisplay%</strong></i></small></label>
-        <InputNumber @bind-Value="@Inputs.Deposit"></InputNumber>
-    </p>
-    <p>
+        <input type="number" @bind="@Inputs.VehiclePrice" class="form-control" placeholder="e.g 10000" />
+    </div>
+    <div class="form-group">
+        <label>Deposit (£) </label>
+        <input type="number" @bind="@Inputs.Deposit" class="form-control" placeholder="e.g 2000" />
+        <small><i><strong>Minimum @Inputs.MinimumDepositDisplay%</strong></i></small>
+    </div>
+    <div class="form-group">
         <label>Over how many years?</label>
-        <InputSelect @bind-Value="@Inputs.NumberOfYears">
+        <InputSelect @bind-Value="@Inputs.NumberOfYears" class="form-control">
             @foreach (var years in Inputs.AvailableDurations)
             {
-                <option value="@years">@years</option>
+            <option value="@years">@years</option>
             }
         </InputSelect>
-    </p>
-    <p>
+    </div>
+    <div class="form-group">
         <label>Arrangement Fee (£)</label>
-        <InputNumber @bind-Value="@Inputs.ArrangementFee"></InputNumber>
-    </p>
-    <p>
+        <input type="number" @bind="@Inputs.ArrangementFee" class="form-control" placeholder="e.g 88" />
+    </div>
+    <div class="form-group">
         <label>Settlement Fee (£)</label>
-        <InputNumber @bind-Value="@Inputs.SettlementFee"></InputNumber>
-    </p>
-
-    <p>
+        <input type="number" @bind="@Inputs.SettlementFee" class="form-control" placeholder="e.g 22" />
+    </div>
+    <div class="form-group">
         <button>Save</button>
-    </p>
+    </div>
 
 </EditForm>
 
