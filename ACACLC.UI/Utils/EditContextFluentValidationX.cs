@@ -61,13 +61,6 @@ namespace ACACLC.UI.Utils
         private static IValidator GetValidatorForModel(object model)
         {
             var abstractValidatorType = typeof(AbstractValidator<>).MakeGenericType(model.GetType());
-            foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
-            {
-                foreach (Type t in a.GetTypes())
-                {
-                    // ... do something with 't' ...
-                }
-            }
 
             var modelValidatorType = Assembly.GetAssembly(typeof(Quote)).GetTypes().FirstOrDefault(t => t.IsSubclassOf(abstractValidatorType));
             var modelValidatorInstance = (IValidator)Activator.CreateInstance(modelValidatorType);
