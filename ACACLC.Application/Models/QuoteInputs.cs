@@ -20,7 +20,7 @@ namespace ACACLC.Application.Models
 
             RuleFor(x => x.DeliveryDate)
                 .NotNull().WithMessage("Delivery date must be provided.")
-                .LessThan(DateTime.Now).WithMessage("Delivery date cannot be in the past.");
+                .GreaterThanOrEqualTo(DateTime.Now).WithMessage("Delivery date cannot be in the past.");
 
             RuleFor(x => x.NumberOfYears)
                 .NotNull().WithMessage($"Number Of Years must be provided.")
@@ -65,6 +65,8 @@ namespace ACACLC.Application.Models
             }
         }
 
+        public decimal NumberOrMonths => NumberOfYears * 12;
+
         public decimal Deposit { get; set; }
 
         public decimal ArrangementFee { get; set; } = 88.0M;
@@ -72,6 +74,8 @@ namespace ACACLC.Application.Models
         public decimal SettlementFee { get; set; } = 20.0M;
 
         public decimal MinimumDepositDisplay => (MinimumDeposit * 100);
+
+        public decimal MonthlyPayment => Math.Round((VehiclePrice - Deposit) / NumberOrMonths, 2);
 
         private void IsDepositWithinMinimumRange(decimal deposit, CustomContext context)
         {

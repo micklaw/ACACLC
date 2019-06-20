@@ -1,7 +1,9 @@
 ﻿@page "/start"
-@using Microsoft.Extensions.Logging
 
-@inject ILogger<Start> logger
+@using ACACLC.Application.UseCases;
+@using System.Globalization
+
+@inject CalculateQuote calculateQuote
 
 <h1>Start a quote</h1>
 
@@ -68,11 +70,67 @@
     </div>
 </EditForm>
 
+@if (Quote != null)
+{
+    <h2>Payments</h2>
+
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount (£)</th>
+                        <th>Fee</th>
+                        <th>Fees amount (£)</th>
+                        <th>Total (£)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var payment in Quote.Payments)
+                    {
+                        <tr>
+                            <td>@payment.PaymentDay.ToString("dddd, dd MMMM yyyy")</td>
+                            <td>@payment.Amount.ToString()</td>
+                            <td>@payment.FeeType</td>
+                            <td>@payment.FeeAmount?.ToString()</td>
+                            <td>@payment.Total.ToString()</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>Total payable</td>
+                        <td colspan="3"></td>
+                        <td>@Quote.Payments.Sum(i => i.Total).ToString()</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br />
+
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <button class="btn btn-primary" onclick="@(() => Save())">Book it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     QuoteInputs Inputs = new QuoteInputs();
+    Quote Quote = null;
 
     void Submitted()
     {
-        logger.LogDebug("Form submitted", Inputs);
+        Quote = calculateQuote.Calculate(Inputs);
+    }
+
+    void Save()
+    {
+        Quote.Complete();
+        calculateQuote.Save(Quote);
+        Quote = null;
+        Inputs = new QuoteInputs();
     }
 }

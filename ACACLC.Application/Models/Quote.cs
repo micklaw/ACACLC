@@ -7,25 +7,23 @@ namespace ACACLC.Application.Models
 {
     public class Quote
     {
-        public DateTime StarTime;
-
         public Quote()
         {
             Id = Guid.NewGuid();
-            StarTime = DateTime.Now;
+            StartDateTime = DateTime.Now;
         }
 
         public Guid Id { get; set; }
 
-        public QuoteInputs Inputs { get; set; }
+        public DateTime StartDateTime { get; set; }
 
-        public DateTime CompletedTime { get; set; }
+        public IList<QuotePayment> Payments { get; set; } = new List<QuotePayment>();
 
-        public IList<QuoteYear> Years { get; set; } = new List<QuoteYear>();
+        public DateTime CompletedDateTime { get; set; }
 
-        public void Calculate()
+        public void Complete()
         {
-
+            CompletedDateTime = DateTime.Now;
         }
     }
 }
