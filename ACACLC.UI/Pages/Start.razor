@@ -9,9 +9,13 @@
     <FluentValidationValidator />
     <ValidationSummary />
 
-    <p>
+    <div class="form-group">
         <label>Customer Name</label>
-        <InputText @bind-Value="@Inputs.CustomerName"></InputText>
+        <InputText @bind-Value="@Inputs.CustomerName" class="form-control" placeholder="Customer name"></InputText>
+    </div>
+
+    <p>
+        
     </p>
     <p>
         <label>Vehicle Price (£)</label>
