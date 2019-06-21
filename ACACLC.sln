@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{E0D29630
 		appveyor.yml = appveyor.yml
 		global.json = global.json
 		MLWD.ruleset = MLWD.ruleset
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5EB49E1-7911-4A98-9022-8EE14B0D3103}"
