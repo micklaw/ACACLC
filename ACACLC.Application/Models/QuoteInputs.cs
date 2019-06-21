@@ -20,7 +20,7 @@ namespace ACACLC.Application.Models
 
             RuleFor(x => x.DeliveryDate)
                 .NotNull().WithMessage("Delivery date must be provided.")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage("Delivery date cannot be in the past.");
+                .GreaterThanOrEqualTo(DateTime.Now.Date).WithMessage("Delivery date cannot be in the past.");
 
             RuleFor(x => x.NumberOfYears)
                 .NotNull().WithMessage($"Number Of Years must be provided.")
