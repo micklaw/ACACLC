@@ -14,9 +14,6 @@ Absolute bonus is the ability to host dotnet core code in gh-pages branches :) T
 
 The app is written in dotnet core 3.0, C# and uses a new WASM framework called Blazor. Though experimental it does showcase some the dotnet skills I have, though not in real low level detail due to time restrictions, I thought it would maybe be something different to submissions using JS frameworks or standard MVC apps so thought I'd mix it up a little and do some learning for me too while I'm at it.
 
-* Build & Test: [https://ci.appveyor.com/project/MichaelLaw/acaclc](https://ci.appveyor.com/project/MichaelLaw/acaclc)
-* Demo: [https://micklaw.github.io/acaclc/](https://micklaw.github.io/acaclc/)
-
 ### Frameworks
 
 * Dotnet SDK: 3.0.100-preview6.19307.6
@@ -26,6 +23,7 @@ The app is written in dotnet core 3.0, C# and uses a new WASM framework called B
 
 ### Links
 
-https://github.com/micklaw/acaclc [https://github.com/micklaw/acaclc/tree/gh-pages](gh-pages branch)
-
+* Build & Test: [https://ci.appveyor.com/project/MichaelLaw/acaclc](https://ci.appveyor.com/project/MichaelLaw/acaclc)
+* Demo: [https://micklaw.github.io/acaclc/](https://micklaw.github.io/acaclc/)
+* GitHubPages: [https://github.com/micklaw/acaclc/tree/gh-pages](gh-pages branch)
 Michael
