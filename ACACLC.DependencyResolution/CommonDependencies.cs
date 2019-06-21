@@ -13,6 +13,7 @@ namespace ACACLC.DependencyResolution
         {
             services.AddSingleton<IStorage, BrowserStorage>();
             services.AddTransient<GetAllQuotes>();
+            services.AddTransient<GetQuoteById>();
             services.AddTransient<CalculateQuote>();
             services.AddStorage();
         }

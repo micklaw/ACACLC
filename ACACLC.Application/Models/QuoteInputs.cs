@@ -31,12 +31,11 @@ namespace ACACLC.Application.Models
                 .NotNull().WithMessage($"Vehicle price cannot be empty.")
                 .GreaterThanOrEqualTo(0).WithMessage($"Vehicle price cannot be a negative number.");
 
-            RuleFor(x => x.Deposit);
-
             RuleFor(x => x.Deposit)
                 .NotNull().WithMessage($"Deposit must be populated.")
                 .GreaterThanOrEqualTo(0).WithMessage($"Deposit cannot be a negative number.")
-                .Custom(IsDepositWithinMinimumRange);
+                .Custom(IsDepositWithinMinimumRange)
+                .Custom(CannotBeGreaterThanVehiclePrice);
 
             RuleFor(x => x.ArrangementFee)
                 .GreaterThanOrEqualTo(0).WithMessage($"Arrangement fee cannot be a negative number.");
@@ -103,6 +102,19 @@ namespace ACACLC.Application.Models
             }
 
             if (failed)
+            {
+                context.AddFailure(key, message);
+            }
+        }
+
+        private void CannotBeGreaterThanVehiclePrice(decimal deposit, CustomContext context)
+        {
+            var inputs = (QuoteInputs)context.InstanceToValidate;
+
+            var key = nameof(Deposit);
+            var message = $"Deposit cannot be more than the vehicle price";
+
+            if (inputs.Deposit > inputs.VehiclePrice)
             {
                 context.AddFailure(key, message);
             }

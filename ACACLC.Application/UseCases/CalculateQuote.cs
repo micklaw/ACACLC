@@ -24,7 +24,7 @@ namespace ACACLC.Application.UseCases
                 throw new ArgumentNullException(nameof(inputs));
             }
 
-            var quote = new Quote();
+            var quote = new Quote(inputs);
 
             var lastDate = inputs.DeliveryDate;
 

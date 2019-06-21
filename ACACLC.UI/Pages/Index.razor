@@ -8,7 +8,38 @@
 
 @if (quotes != null)
 {
+    <div class="row">
 
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Completed on</th>
+                        <th>Vehicle Amount (£)</th>
+                        <th>Deposit (£)</th>
+                        <th>Total (£)</th>
+                        <th>DeliveryDate</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var quote in quotes)
+                    {
+                        <tr>
+                            <td>@quote.CustomerName</td>
+                            <td>@quote.CompletedDateTime?.ToString("dd MMMM yyyy")</td>
+                            <td>@quote.VehiclePrice</td>
+                            <td>@quote.Deposit</td>
+                            <td>@quote.Payments.Sum(i => i.Total)</td>
+                            <td>@quote.DeliveryDate.ToString("dddd, dd MMMM yyyy")</td>
+                            <td><a href="view/@quote.Id">View</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 }
 else
 {
@@ -17,7 +48,8 @@ else
 
 
 @code {
-    IList<Quote> quotes = null;
+    IList<Quote>
+    quotes = null;
 
     protected override void OnInit()
     {
