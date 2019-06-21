@@ -25,5 +25,6 @@ The app is written in dotnet core 3.0, C# and uses a new WASM framework called B
 
 * Build & Test: [https://ci.appveyor.com/project/MichaelLaw/acaclc](https://ci.appveyor.com/project/MichaelLaw/acaclc)
 * Demo: [https://micklaw.github.io/acaclc/](https://micklaw.github.io/acaclc/)
-* GitHubPages: [https://github.com/micklaw/acaclc/tree/gh-pages](gh-pages branch)
+* GitHubPages: [https://github.com/micklaw/acaclc/tree/gh-pages](https://github.com/micklaw/acaclc/tree/gh-pages)
+
 Michael
