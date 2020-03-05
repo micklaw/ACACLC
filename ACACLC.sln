@@ -26,11 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{E0D29630
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5EB49E1-7911-4A98-9022-8EE14B0D3103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACACLC.Infrastructure", "ACACLC.Infrasructure\ACACLC.Infrastructure.csproj", "{4E785E28-3863-432A-BA01-6D6B8B719839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACACLC.Infrastructure", "ACACLC.Infrasructure\ACACLC.Infrastructure.csproj", "{4E785E28-3863-432A-BA01-6D6B8B719839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACACLC.DependencyResolution", "ACACLC.DependencyResolution\ACACLC.DependencyResolution.csproj", "{773FB4C6-B67B-4189-BDB3-F75998A7EC84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACACLC.DependencyResolution", "ACACLC.DependencyResolution\ACACLC.DependencyResolution.csproj", "{773FB4C6-B67B-4189-BDB3-F75998A7EC84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACACLC.Tests", "ACACLC.Tests\ACACLC.Tests.csproj", "{07E092CC-0A73-4EDC-B87D-CFF6F4974D60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACACLC.Tests", "ACACLC.Tests\ACACLC.Tests.csproj", "{07E092CC-0A73-4EDC-B87D-CFF6F4974D60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

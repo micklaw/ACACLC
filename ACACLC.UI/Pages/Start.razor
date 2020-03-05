@@ -132,7 +132,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group">
-                        <button class="btn btn-primary" onclick="@(() => Save())">Book it</button>
+                        <button class="btn btn-primary" @onclick="Save">Book it</button>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
     QuoteInputs Inputs = new QuoteInputs();
     Quote Quote = null;
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         isViewing = !string.IsNullOrEmpty(id);
 

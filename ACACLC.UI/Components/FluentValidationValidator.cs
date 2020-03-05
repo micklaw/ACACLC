@@ -9,16 +9,18 @@ namespace ACACLC.UI.Components
     {
         [CascadingParameter] EditContext CurrentEditContext { get; set; }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
             if (CurrentEditContext == null)
             {
                 throw new InvalidOperationException($"{nameof(FluentValidationValidator)} requires a cascading " +
-                    $"parameter of type {nameof(EditContext)}. For example, you can use {nameof(FluentValidationValidator)} " +
-                    $"inside an {nameof(EditForm)}.");
+                                                    $"parameter of type {nameof(EditContext)}. For example, you can use {nameof(FluentValidationValidator)} " +
+                                                    $"inside an {nameof(EditForm)}.");
             }
 
             CurrentEditContext.AddFluentValidation();
+
+            base.OnInitialized();
         }
     }
 }

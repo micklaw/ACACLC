@@ -53,7 +53,7 @@ namespace ACACLC.UI.Utils
             var validationResults = validator.Validate(context);
 
             messages.Clear(fieldIdentifier);
-            messages.AddRange(fieldIdentifier, validationResults.Errors.Select(error => error.ErrorMessage));
+            messages.Add(fieldIdentifier, validationResults.Errors.Select(error => error.ErrorMessage));
 
             editContext.NotifyValidationStateChanged();
         }

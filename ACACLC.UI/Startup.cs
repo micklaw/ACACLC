@@ -1,7 +1,6 @@
 using ACACLC.DependencyResolution;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace ACACLC.UI
 {

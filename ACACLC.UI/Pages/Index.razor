@@ -51,7 +51,7 @@ else
     IList<Quote>
     quotes = null;
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         quotes = getQuotes.Handle();
     }
